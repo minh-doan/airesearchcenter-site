@@ -19,11 +19,12 @@ that grants no rights beyond those Terms.
 Third-party components keep their own licences. Nothing above limits the rights
 those licences give you in the original components:
 
-  three.js                                 MIT License              js/LICENSE-three.txt
-  Source Serif 4, Source Sans 3            SIL Open Font License 1.1 fonts/OFL-*.txt
-  BodyParts3D 4.0, (c) The Database Center for Life Science       CC BY 4.0
-  HuBMAP Human Reference Atlas, CCF 3D Reference Object Library
-    (Visible Human Male)                                           CC BY 4.0
+- three.js: MIT License (see js/LICENSE-three.txt)
+- Source Serif 4 and Source Sans 3 typefaces: SIL Open Font License 1.1
+  (see fonts/OFL-SourceSerif4.txt and fonts/OFL-SourceSans3.txt)
+- BodyParts3D 4.0, (c) The Database Center for Life Science: CC BY 4.0
+- HuBMAP Human Reference Atlas, CCF 3D Reference Object Library
+  (Visible Human Male): CC BY 4.0
 
 The anatomy on the site is adapted from the two CC BY 4.0 sources above. The
 original data remain freely available from their publishers under those terms;
