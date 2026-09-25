@@ -166,7 +166,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.012e
 
 @media (max-width: 900px) {
   .anat { display: block; min-height: 0; }
-  .anat-stage { position: relative; height: 72svh; min-height: 460px; }
+  .anat-stage { position: relative; height: min(72svh, 760px); min-height: 460px; }
   .hero-copy { padding-top: 22px; }
   .hero-copy > * { max-width: 62ch; }
   .anat-controls { padding: 18px 0 28px; }
@@ -247,7 +247,7 @@ h1, h2, h3 { font-family: var(--serif); font-weight: 500; letter-spacing: -.012e
 .fac-detail .btn { margin-top: 8px; }
 @media (max-width: 1000px) {
   .facility { grid-template-columns: 1fr; }
-  .fac-stage { height: 64svh; min-height: 420px; }
+  .fac-stage { height: min(64svh, 680px); min-height: 420px; }
   .fac-panel { border-left: 0; border-top: 1px solid var(--line); max-height: none; min-height: 0; }
 }
 
@@ -392,11 +392,12 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
 .scales-intro { margin-bottom: 36px; }
 .sc-hint { color: var(--teal); font-weight: 600; }
 .scales-track { position: relative; height: calc((var(--levels) - 1 + .7) * 100svh + 100svh); }
-.scales-view { position: sticky; top: 60px; height: calc(100svh - 60px); overflow: hidden; background: #05141a; }
+.scales-view { position: sticky; top: 60px; height: calc(100svh - 60px); overflow: hidden; background: #05141a; container: scview / size; }
 .scales-layers { position: absolute; inset: 0; }
 .sc-layer { position: absolute; inset: 0; margin: 0; visibility: hidden; will-change: transform, filter, opacity; }
 .sc-layer img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .sc-layer.is-settled img { animation: sc-drift 22s ease-in-out infinite alternate; }
+.scales.is-paused .sc-layer.is-settled img { animation-play-state: paused; }
 @keyframes sc-drift { from { transform: scale(1) translate(0, 0); } to { transform: scale(1.035) translate(-0.6%, 0.4%); } }
 .sc-vignette { position: absolute; inset: 0; z-index: 3; pointer-events: none; background: radial-gradient(120% 90% at 50% 50%, transparent 55%, rgba(5, 20, 26, .78) 100%), linear-gradient(90deg, rgba(5, 20, 26, .78) 0%, transparent 32%, transparent 62%, rgba(5, 20, 26, .72) 100%); }
 .sc-reticle { position: absolute; z-index: 4; width: 0; height: 0; pointer-events: none; transition: opacity .2s; }
@@ -409,12 +410,12 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
 .sc-alt { margin: 0; font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; color: var(--on-dark-muted); }
 .sc-alt b { display: block; font: 500 1.9rem/1.1 var(--serif); letter-spacing: 0; text-transform: none; color: var(--on-dark); font-variant-numeric: tabular-nums; }
 .sc-ladder { list-style: none; margin: 0; padding: 0 0 0 14px; position: relative; display: grid; gap: 4px; pointer-events: auto; }
-.sc-ladder::before { content: ""; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 2px; background: rgba(233, 241, 239, .18); border-radius: 2px; }
-.sc-ladder::after { content: ""; position: absolute; left: 4px; top: 8px; width: 2px; height: calc((100% - 16px) * var(--ladder, 0)); background: var(--teal); border-radius: 2px; }
+.sc-ladder::before { content: ""; pointer-events: none; position: absolute; left: 4px; top: 8px; bottom: 8px; width: 2px; background: rgba(233, 241, 239, .18); border-radius: 2px; }
+.sc-ladder::after { content: ""; pointer-events: none; position: absolute; left: 4px; top: 8px; width: 2px; height: calc((100% - 16px) * var(--ladder, 0)); background: var(--teal); border-radius: 2px; }
 .sc-ladder li { position: relative; display: flex; align-items: baseline; gap: 8px; }
-.sc-ladder li::before { content: ""; position: absolute; left: -14px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: #05141a; border: 2px solid rgba(233, 241, 239, .45); }
+.sc-ladder li::before { content: ""; pointer-events: none; position: absolute; left: -14px; top: 9px; width: 10px; height: 10px; border-radius: 50%; background: #05141a; border: 2px solid rgba(233, 241, 239, .45); }
 .sc-ladder li.is-active::before { background: var(--teal); border-color: var(--teal); box-shadow: 0 0 0 4px rgba(83, 213, 200, .2); }
-.sc-ladder button { background: none; border: 0; padding: 2px 0; cursor: pointer; color: var(--on-dark-muted); font-size: .92rem; font-weight: 600; text-shadow: 0 1px 6px rgba(0, 0, 0, .7); }
+.sc-ladder button { background: none; border: 0; padding: 2px 0 2px 18px; margin-left: -18px; cursor: pointer; color: var(--on-dark-muted); font-size: .92rem; font-weight: 600; text-shadow: 0 1px 6px rgba(0, 0, 0, .7); }
 .sc-ladder li.is-active button { color: var(--on-dark); }
 .sc-ladder small { color: var(--on-dark-muted); font-size: .72rem; opacity: .8; }
 .sc-cards { position: absolute; z-index: 5; right: max(18px, calc((100% - var(--max)) / 2)); bottom: 28px; width: min(400px, 42vw); }
@@ -426,7 +427,7 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
 .sc-card .pillar { margin: 0; display: inline-block; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(220, 175, 101, .55); color: var(--amber); font-size: .8rem; font-weight: 600; }
 /* multi-omics: plates stacked in 3D, separating over the last stretch of scroll */
 .sc-omics { display: grid; place-items: center; background: radial-gradient(80% 70% at 55% 50%, #0f2f3a 0%, #05141a 70%); perspective: 1400px; }
-.sc-stack { position: relative; width: min(44vmin, 420px); aspect-ratio: 1; transform: rotateX(58deg) rotateZ(-36deg); transform-style: preserve-3d; margin: -8vh 0 0 0; }
+.sc-stack { position: relative; width: min(44cqmin, 420px); aspect-ratio: 1; transform: rotateX(58deg) rotateZ(-36deg); transform-style: preserve-3d; margin: -8cqh 0 0 0; }
 .sc-plate { position: absolute; inset: 0; transform: translateZ(calc((var(--i) - 2) * 22px + var(--sep, 0) * 120px)); transform-style: preserve-3d; opacity: calc(.55 + var(--omics, 0) * .45); }
 .sc-plate img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; border: 1px solid rgba(233, 241, 239, .35); box-shadow: 0 20px 50px rgba(0, 0, 0, .45); }
 .sc-plate span { position: absolute; left: 104%; top: 6%; white-space: nowrap; transform: rotateZ(36deg) rotateX(-58deg); transform-origin: 0 0; font-size: .82rem; font-weight: 600; color: var(--on-dark); opacity: var(--omics, 0); text-shadow: 0 1px 8px rgba(0, 0, 0, .8); }
@@ -439,11 +440,11 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
   .sc-card { padding: 14px 16px; }
   .sc-card h3 { font-size: 1.1rem; }
   .sc-card p { font-size: .86rem; }
-  .sc-stack { width: 58vmin; margin: -18vh 0 0 0; }
+  .sc-stack { width: 58cqmin; margin: -18cqh 0 0 0; }
 }
 @media (max-width: 900px) {
   .sc-plate { transform: translateZ(calc((var(--i) - 2) * 14px + var(--sep, 0) * 64px)); }
-  .sc-stack { width: 50vmin; margin: -26vh 0 0 0; }
+  .sc-stack { width: 50cqmin; margin: -26cqh 0 0 0; }
   .sc-plate span { font-size: .7rem; }
 }
 .sc-legend { position: absolute; right: max(24px, calc((100% - var(--max)) / 2 + 20px)); top: 18%; list-style: none; margin: 0; padding: 0; display: grid; gap: 22px; opacity: var(--omics, 0); counter-reset: om 6; }
@@ -451,20 +452,36 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
 .sc-legend li::before { content: counter(om); display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--teal); color: var(--teal); font-size: .72rem; }
 @media (max-width: 900px) { .sc-legend { right: 12px; top: 128px; gap: 8px; } .sc-legend li { font-size: .74rem; } }
 
+@container scview (max-height: 700px) {
+  .sc-hud { padding: 10px 12px; gap: 6px; }
+  .sc-alt b { font-size: 1.1rem; }
+  .sc-ladder { gap: 0; }
+  .sc-ladder li:not(.is-active) button { font-size: 0; padding: 0; width: 26px; height: 18px; margin-left: -20px; }
+  .sc-ladder li:not(.is-active) small { display: none; }
+  .sc-card .pillar { display: none; }
+  .sc-card p { font-size: .82rem; }
+}
 @media (max-width: 480px), (max-height: 700px) {
   .sc-hud { padding: 10px 12px; gap: 6px; }
   .sc-alt b { font-size: 1.1rem; }
   .sc-ladder { gap: 0; }
-  .sc-ladder li:not(.is-active) button { font-size: 0; padding: 4px 0; }
+  .sc-ladder li:not(.is-active) button { font-size: 0; padding: 0; width: 26px; height: 18px; margin-left: -20px; }
   .sc-ladder li:not(.is-active) small { display: none; }
   .sc-card .pillar { display: none; }
   .sc-card p { font-size: .82rem; }
 }
 
 /* zoom as a self-playing widget (embed/scales.html): fits its frame, never scrolls */
-.scales.is-player { padding-top: 0; }
+.scales.is-player:not(.is-inline) { padding-top: 0; }
 .scales.is-player .scales-track { height: 100svh; }
 .scales.is-player .scales-view { position: relative; top: 0; height: 100svh; }
+/* the page's zoom inside a frame taller than the screen (a Google Sites embed scales with the
+   page width): an in-flow player sized to the screen instead of a sticky, frame-tall view */
+.scales.is-player.is-inline .scales-track { height: auto; }
+.scales.is-player.is-inline .scales-view { height: var(--player-h, 760px); }
+.scales:not(.is-player) .sc-controls { display: none; }
+.sc-hint .when-player, .scales.is-player .sc-hint .when-page { display: none; }
+.scales.is-player .sc-hint .when-player { display: inline; }
 .sc-controls { position: absolute; z-index: 6; left: max(18px, calc((100% - var(--max)) / 2)); bottom: 28px; width: min(440px, calc(58% - 40px)); display: flex; align-items: center; gap: 12px; }
 .sc-controls .sc-scrub { flex: 1; min-width: 0; }
 @media (max-width: 900px) {
@@ -482,7 +499,8 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
   .sc-vignette { background: radial-gradient(120% 95% at 50% 50%, transparent 58%, rgba(5, 20, 26, .72) 100%), linear-gradient(90deg, rgba(5, 20, 26, .9) 0, transparent 7%); }
   .sc-rail { position: absolute; z-index: 5; left: 0; top: 0; bottom: 0; width: var(--rail); box-sizing: border-box; padding: 22px 14px 22px 22px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
   .sc-rail .sc-hud { position: relative; left: auto; top: auto; }
-  .sc-rail .sc-cards { position: relative; right: auto; bottom: auto; width: auto; display: grid; }
+  .sc-rail .sc-hud, .sc-rail .sc-controls { flex: none; }
+  .sc-rail .sc-cards { position: relative; right: auto; bottom: auto; width: auto; display: grid; flex: 0 1 auto; min-height: 0; overflow: auto; }
   .sc-rail .sc-card { position: relative; right: auto; bottom: auto; width: auto; grid-area: 1 / 1; }
   .sc-rail .sc-controls { position: relative; left: auto; bottom: auto; width: auto; }
 }

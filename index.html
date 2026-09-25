@@ -178,7 +178,7 @@
     </div>
     <div class="col-5 col-start-8">
       <p class="prose-dark">From the whole living subject to the organ, the tissue, the cell, its organelles and the molecule itself, then out again to integrated multi-omics: one continuous flow of spatial information. Each scale answers a pillar of drug discovery: exposure at the site of action, target engagement, functional pharmacology, and the right target for the right patient.</p>
-      <p class="prose-dark sc-hint">Scroll to zoom in.</p>
+      <p class="prose-dark sc-hint"><span class="when-page">Scroll to zoom in.</span><span class="when-player">It plays by itself: use the scale ladder or the slider to explore.</span></p>
     </div>
   </div>
   <div class="scales-track" style="--levels:7">
@@ -228,7 +228,11 @@
         <article class="sc-card"><p class="k">Molecular · nanometres</p><h3>The molecule and its target</h3><p>Imaging mass spectrometry and single-molecule imaging map the drug, its metabolites and its target in place. Illustration generated for this site.</p><p class="pillar">Functional pharmacology</p></article>
         <article class="sc-card"><p class="k">Multi-omics · every layer</p><h3>Integrated multi-omics</h3><p>Human genetics, single-cell states, spatial transcriptomics and spatial proteomics aligned to the image: genetics to cell type to druggable target.</p><p class="pillar">Right target, right patient</p></article>
       </div>
-      <!-- sc-controls -->
+      <div class="sc-controls" role="group" aria-label="Zoom controls">
+        <button type="button" class="sc-play icon-btn" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-play" d="M4 2.5v11l9-5.5z"/><path class="i-pause" d="M4 2.5h3v11H4zm5 0h3v11H9z"/></svg><span>Pause</span></button>
+        <label class="sr-only" for="sc-scrub">Zoom from whole subject to molecule</label>
+        <input id="sc-scrub" class="sc-scrub" type="range" min="0" max="1000" step="1" value="0">
+      </div>
       </div>
     </div>
   </div>
@@ -322,7 +326,7 @@
   <div class="wrap grid-12">
     <div class="col-6">
       <p class="eyebrow">Collaborate</p>
-      <h2 id="contact-title" class="display">Bring us a question <em>worth <span class="imagine" title="Not a typo: from imaging to imagining">imag<span class="add"><ins>in</ins></span>ing</span>.</em></h2>
+      <h2 id="contact-title" class="display">Have a question<br> <em>worth <span class="imagine" title="Not a typo: from imaging to imagining">imag<span class="add"><ins>in</ins></span>ing</span>?</em></h2>
     </div>
     <div class="col-5 col-start-8 prose">
       <p>We work with discovery and development teams, academic partners and technology companies on in vivo imaging, radiochemistry and imaging AI.</p>
