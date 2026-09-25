@@ -1,0 +1,30 @@
+Copyright (c) 2026 Minh Doan. All rights reserved.
+
+This repository publishes the AI Research Center website (airesearchcenter.com):
+its text, page design, images and illustrations, 3D models and animations, data
+files and code ("the Work").
+
+You may view the website in a web browser. No other licence is granted. You may
+not copy, modify, adapt, redistribute, republish, mirror, sell, or otherwise use
+any part of the Work, including to train or evaluate machine-learning models,
+without prior written permission from the copyright holder.
+
+To ask for permission, email deepometry@gmail.com and describe what you would
+like to use and how.
+
+This repository is public so that GitHub Pages can serve the website. GitHub's
+Terms of Service let GitHub users view and fork public repositories on GitHub;
+that grants no rights beyond those Terms.
+
+Third-party components keep their own licences. Nothing above limits the rights
+those licences give you in the original components:
+
+  three.js                                 MIT License              js/LICENSE-three.txt
+  Source Serif 4, Source Sans 3            SIL Open Font License 1.1 fonts/OFL-*.txt
+  BodyParts3D 4.0, (c) The Database Center for Life Science       CC BY 4.0
+  HuBMAP Human Reference Atlas, CCF 3D Reference Object Library
+    (Visible Human Male)                                           CC BY 4.0
+
+The anatomy on the site is adapted from the two CC BY 4.0 sources above. The
+original data remain freely available from their publishers under those terms;
+this notice covers only the adaptations and everything else created for the Work.

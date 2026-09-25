@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anatomy to radiomics · AI Research Center</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="../img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../css/site.css">
+<script type="module" src="../js/embed.js"></script>
+</head>
+<body class="embed" data-widget="anatomy" data-theme="dark">
+<main class="hero embed-hero" data-theme="dark">
+<div class="anat" id="anatomy" style="--anat-inset:.36">
+    <div class="anat-stage">
+      <canvas class="anat-canvas" aria-hidden="true"></canvas>
+      <svg class="anat-lines" aria-hidden="true"></svg>
+      <div class="anat-labels" aria-hidden="true"></div>
+      <div class="anat-tip" role="status" hidden></div>
+      <div class="anat-fallback">
+        <img src="../img/anatomy-poster.jpg" alt="Human body with segmented organs in colour inside a translucent skin" loading="lazy">
+        <p>This interactive view needs WebGL. The five stages are described in the text.</p>
+      </div>
+      <div class="anat-loading" aria-hidden="true"><span></span>Loading anatomy</div>
+    </div>
+
+    <div class="hero-copy wrap">
+
+      <div class="narrative" aria-live="polite">
+        <article data-narrative="0" class="is-active">
+          <h2><span>01</span> One body, imaged whole</h2>
+          <p>A trace dose of radiolabelled medicine, then non-invasive PET, MRI and CT show where it goes. The same subject can be followed again over hours, days and weeks.</p>
+        </article>
+        <article data-narrative="1">
+          <h2><span>02</span> Every organ, delineated by AI</h2>
+          <p>Computer vision outlines more than 150 structures across the body, from the brain’s deep nuclei to the bones, so each signal is assigned to the place it comes from.</p>
+        </article>
+        <article data-narrative="2">
+          <h2><span>03</span> From surfaces to measurements</h2>
+          <p>Each region of interest becomes a cloud of voxels, and every voxel carries signal: tracer concentration for <strong>biodistribution</strong>, tissue texture for radiogenomics.</p>
+        </article>
+        <article data-narrative="3">
+          <h2><span>04</span> Whole-body multi-omics features</h2>
+          <p>Thousands of quantitative features per organ region describe shape, intensity, texture, tissue and cellular dynamics. Each column is one organ. Each dot is one feature of one region.</p>
+        </article>
+        <article data-narrative="4">
+          <h2><span>05</span> A readout you can act on</h2>
+          <p>Redundant features are denoised. The rest are compared across regions and timepoints, grouped by body system, ready to be linked to dose, response and clinically relevant endpoints.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="anat-controls wrap" role="group" aria-label="Anatomy to radiomics">
+      <div class="tracer" role="group" aria-label="Tracer signal (illustrative)">
+        <span class="tracer-k">Tracer signal</span>
+        <button type="button" data-tracer="off" aria-pressed="true">Off</button>
+        <button type="button" data-tracer="ab" aria-pressed="false">Antibody</button>
+        <button type="button" data-tracer="shuttle" aria-pressed="false">Brain-shuttle antibody</button>
+        <span class="tracer-legend" aria-hidden="true"><i></i><em>low</em><em>high</em></span>
+        <span class="tracer-time" aria-live="polite"></span>
+        <span class="tracer-note">Illustrative kinetics, not study data</span>
+      </div>
+      <div class="stops">
+        <button type="button" data-stop="0" aria-pressed="true">Body</button>
+        <button type="button" data-stop="1" aria-pressed="false">Organs</button>
+        <button type="button" data-stop="2" aria-pressed="false">Voxels</button>
+        <button type="button" data-stop="3" aria-pressed="false">Distribution</button>
+        <button type="button" data-stop="4" aria-pressed="false">Feature chart</button>
+      </div>
+      <div class="scrub">
+        <button type="button" class="anat-play icon-btn" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-play" d="M4 2.5v11l9-5.5z"/><path class="i-pause" d="M4 2.5h3v11H4zm5 0h3v11H9z"/></svg><span>Play</span></button>
+        <label class="sr-only" for="anat-t">Morph from anatomy to radiomics</label>
+        <input id="anat-t" class="anat-t" type="range" min="0" max="1000" step="1" value="0">
+        <output class="anat-readout" for="anat-t">0%</output>
+        <button type="button" class="anat-spin icon-btn" aria-pressed="true" title="Pause or resume the turning body and the tracer animation"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2a6 6 0 1 0 5.7 4.1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14.5 2.2v4.3h-4.3z"/></svg><span>Turn</span></button>
+      </div>
+      <p class="anat-note">Illustration. Human reference anatomy with organ surfaces derived from preclinical AI segmentation; feature values from a preclinical imaging study. <a href="https://airesearchcenter.com" target="_blank" rel="noopener">airesearchcenter.com</a></p>
+      <details class="anat-data">
+        <summary>The feature chart as a table</summary>
+        <table>
+          <caption>Per organ: region instances, features, mean z-score, and the share of values above +2σ and below −2σ. <span class="src"></span></caption>
+          <thead><tr><th scope="col">Organ</th><th scope="col">System</th><th scope="col">Regions</th><th scope="col">Features</th><th scope="col">Mean z</th><th scope="col">Above +2σ</th><th scope="col">Below −2σ</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </details>
+    </div>
+  </div>
+</main>
+</body>
+</html>

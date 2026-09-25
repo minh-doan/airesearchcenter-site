@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Research Center · Bioimaging and AI</title>
+<meta name="description" content="A research facility that pairs a fleet of biomedical imaging instruments, multi-omics and radiochemistry with AI, to understand the mechanism of action of medicines through the living body and turn whole-body signal into decisions.">
+<meta name="theme-color" content="#091C24">
+<meta property="og:title" content="AI Research Center · Bioimaging and AI">
+<meta property="og:description" content="We follow medicines through the living body: PET/MR, PET/CT, MRI, radiotracers, integrated multi-omics and whole-body AI.">
+<meta property="og:image" content="https://minh-doan.github.io/airesearchcenter-site/img/og.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://minh-doan.github.io/airesearchcenter-site/">
+<link rel="canonical" href="https://minh-doan.github.io/airesearchcenter-site/">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/source-serif-4-latin-opsz.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/source-sans-3-latin-wght.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/site.css">
+<script type="module" src="js/main.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead" data-theme="dark">
+  <div class="wrap masthead-in">
+    <a class="brand" href="#top" aria-label="AI Research Center, home">
+      <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2.2 2.2"/><circle cx="16" cy="16" r="2.4" fill="currentColor"/></svg>
+      <span>AI Research Center</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#facility">The facility</a>
+      <a href="#scales">Body to molecule</a>
+      <a href="#follow">What we follow</a>
+      <a href="#methods">Methods</a>
+      <a href="#lab">Inside the lab</a>
+      <a href="#knowledge">Knowledge loop</a>
+      <a class="nav-cta" href="#contact">Collaborate</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- ============================ HERO ============================ -->
+<section id="top" class="hero" data-theme="dark" aria-labelledby="hero-title">
+  <div class="anat" id="anatomy" style="--anat-inset:.40">
+    <div class="anat-stage">
+      <canvas class="anat-canvas" aria-hidden="true"></canvas>
+      <svg class="anat-lines" aria-hidden="true"></svg>
+      <div class="anat-labels" aria-hidden="true"></div>
+      <div class="anat-tip" role="status" hidden></div>
+      <div class="anat-fallback">
+        <img src="img/anatomy-poster.jpg" alt="Human body with segmented organs in colour inside a translucent skin" loading="lazy">
+        <p>This interactive view needs WebGL. The five stages are described in the text.</p>
+      </div>
+      <div class="anat-loading" aria-hidden="true"><span></span>Loading anatomy</div>
+    </div>
+
+    <div class="hero-copy wrap">
+      <p class="eyebrow">Non-invasive radiogenomics · Whole-body AI</p>
+      <h1 id="hero-title">We follow medicines through the living body.</h1>
+      <p class="lede">Advanced imaging, radiochemistry and spatial multi-omics tell us where a medicine travels, how long it stays and how tissue responds. AI turns that whole-body signal into decisions.</p>
+
+      <div class="narrative" aria-live="polite">
+        <article data-narrative="0" class="is-active">
+          <h2><span>01</span> One body, imaged whole</h2>
+          <p>A trace dose of radiolabelled medicine, then non-invasive PET, MRI and CT show where it goes. The same subject can be followed again over hours, days and weeks.</p>
+        </article>
+        <article data-narrative="1">
+          <h2><span>02</span> Every organ, delineated by AI</h2>
+          <p>Computer vision outlines more than 150 structures across the body, from the brain’s deep nuclei to the bones, so each signal is assigned to the place it comes from.</p>
+        </article>
+        <article data-narrative="2">
+          <h2><span>03</span> From surfaces to measurements</h2>
+          <p>Each region of interest becomes a cloud of voxels, and every voxel carries signal: tracer concentration for <strong>biodistribution</strong>, tissue texture for radiogenomics.</p>
+        </article>
+        <article data-narrative="3">
+          <h2><span>04</span> Whole-body multi-omics features</h2>
+          <p>Thousands of quantitative features per organ region describe shape, intensity, texture, tissue and cellular dynamics. Each column is one organ. Each dot is one feature of one region.</p>
+        </article>
+        <article data-narrative="4">
+          <h2><span>05</span> A readout you can act on</h2>
+          <p>Redundant features are denoised. The rest are compared across regions and timepoints, grouped by body system, ready to be linked to dose, response and clinically relevant endpoints.</p>
+        </article>
+      </div>
+    </div>
+
+    <div class="anat-controls wrap" role="group" aria-label="Anatomy to radiomics">
+      <div class="tracer" role="group" aria-label="Tracer signal (illustrative)">
+        <span class="tracer-k">Tracer signal</span>
+        <button type="button" data-tracer="off" aria-pressed="true">Off</button>
+        <button type="button" data-tracer="ab" aria-pressed="false">Antibody</button>
+        <button type="button" data-tracer="shuttle" aria-pressed="false">Brain-shuttle antibody</button>
+        <span class="tracer-legend" aria-hidden="true"><i></i><em>low</em><em>high</em></span>
+        <span class="tracer-time" aria-live="polite"></span>
+        <span class="tracer-note">Illustrative kinetics, not study data</span>
+      </div>
+      <div class="stops">
+        <button type="button" data-stop="0" aria-pressed="true">Body</button>
+        <button type="button" data-stop="1" aria-pressed="false">Organs</button>
+        <button type="button" data-stop="2" aria-pressed="false">Voxels</button>
+        <button type="button" data-stop="3" aria-pressed="false">Distribution</button>
+        <button type="button" data-stop="4" aria-pressed="false">Feature chart</button>
+      </div>
+      <div class="scrub">
+        <button type="button" class="anat-play icon-btn" aria-pressed="false"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-play" d="M4 2.5v11l9-5.5z"/><path class="i-pause" d="M4 2.5h3v11H4zm5 0h3v11H9z"/></svg><span>Play</span></button>
+        <label class="sr-only" for="anat-t">Morph from anatomy to radiomics</label>
+        <input id="anat-t" class="anat-t" type="range" min="0" max="1000" step="1" value="0">
+        <output class="anat-readout" for="anat-t">0%</output>
+        <button type="button" class="anat-spin icon-btn" aria-pressed="true" title="Pause or resume the turning body and the tracer animation"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2a6 6 0 1 0 5.7 4.1" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M14.5 2.2v4.3h-4.3z"/></svg><span>Turn</span></button>
+      </div>
+      <p class="anat-note">Illustration. Human reference anatomy with organ surfaces derived from AI segmentation; feature values are demonstration data. <a href="#credits">Sources</a></p>
+      <details class="anat-data">
+        <summary>The feature chart as a table</summary>
+        <table>
+          <caption>Per organ: region instances, features, mean z-score, and the share of values above +2σ and below −2σ. <span class="src"></span></caption>
+          <thead><tr><th scope="col">Organ</th><th scope="col">System</th><th scope="col">Regions</th><th scope="col">Features</th><th scope="col">Mean z</th><th scope="col">Above +2σ</th><th scope="col">Below −2σ</th></tr></thead>
+          <tbody></tbody>
+        </table>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FACILITY ============================ -->
+<section id="facility" class="band" data-theme="light" aria-labelledby="facility-title">
+  <div class="wrap grid-12">
+    <div class="col-5">
+      <p class="eyebrow">More than an AI team</p>
+      <h2 id="facility-title" class="display">An imaging facility, <em>not just an algorithm.</em></h2>
+    </div>
+    <div class="col-6 col-start-7 prose">
+      <p>Plenty of teams can train a model. We run the research facility that integrates data, models and outcomes by design: a fleet of instruments that see inside the living body without surgery, multi-scale spatial omics and radiochemistry that turn medicines into signals we can follow, and computing infrastructure to analyse every scan as it arrives.</p>
+      <p>Because acquisition, chemistry and AI sit together, each study is designed for the question, measured to a standard, and analysed the same way every time.</p>
+    </div>
+  </div>
+
+  <div class="wrap fleet" role="list">
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-petmr-mri.png" alt="" width="160" height="96" loading="lazy">
+      <h3>PET/MR <span class="amp">&amp;</span> MRI</h3><p>Molecular signal and soft-tissue anatomy in one session; anatomy, perfusion and diffusion across brain and body, with no ionising radiation for MRI.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-petct-ct.png" alt="" width="160" height="96" loading="lazy">
+      <h3>PET/CT <span class="amp">&amp;</span> CT</h3><p>Whole-body tracer distribution mapped onto CT anatomy and repeated over days to follow kinetics; CT is the reference frame for AI segmentation.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-optical.png" alt="" width="160" height="96" loading="lazy">
+      <h3>Optical imaging</h3><p>Bioluminescence and fluorescence for rapid in vivo screens and model development.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-radiochem.png" alt="" width="160" height="96" loading="lazy">
+      <h3>Radiochemistry</h3><p>Labelling small molecules, peptides and antibodies with positron- and gamma-emitting isotopes.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-pathology.png" alt="" width="160" height="96" loading="lazy">
+      <h3>Digital pathology</h3><p>Whole-slide, multiplex and AI-powered histopathology that checks, at cellular scale, what in vivo imaging sees.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-spatial.png" alt="" width="160" height="96" loading="lazy">
+      <h3>Spatial omics</h3><p>Spatial protein and RNA, whole-transcriptome gene expression and single-cell profiling: genetics to cell type to druggable target, where cell state, not just cell type, matters.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-massspec.png" alt="" width="160" height="96" loading="lazy">
+      <h3>Mass spectrometry</h3><p>Imaging mass spectrometry, proteomics and metabolomics: drug, metabolites and proteins mapped in place, from tissue down to single cells.</p>
+    </article>
+    <article class="fleet-card" role="listitem">
+      <img src="img/fleet-superres.png" alt="" width="160" height="96" loading="lazy">
+      <h3>Super-resolution microscopy</h3><p>Super-resolution and live-cell imaging of cellular dynamics, cell state and cell health, uptake and payload release, cell–cell communication and the microenvironment, in complex in vitro models.</p>
+    </article>
+  </div>
+</section>
+
+<!-- ============================ ZOOM: BODY TO MOLECULE ============================ -->
+<section id="scales" class="scales" data-theme="dark" aria-labelledby="scales-title">
+  <div class="wrap grid-12 scales-intro">
+    <div class="col-6">
+      <p class="eyebrow">Zoom from body to molecule</p>
+      <h2 id="scales-title" class="display">A drug and its function, <em>precisely where it happens.</em></h2>
+    </div>
+    <div class="col-5 col-start-8">
+      <p class="prose-dark">From the whole living subject to the organ, the tissue, the cell, its organelles and the molecule itself, then out again to integrated multi-omics: one continuous flow of spatial information. Each scale answers a pillar of drug discovery: exposure at the site of action, target engagement, functional pharmacology, and the right target for the right patient.</p>
+      <p class="prose-dark sc-hint">Scroll to zoom in.</p>
+    </div>
+  </div>
+  <div class="scales-track" style="--levels:7">
+    <div class="scales-view">
+      <div class="scales-layers" aria-hidden="true">
+        <figure class="sc-layer" data-fx=".48" data-fy=".385" data-target="Kidney"><img src="img/scale/0-body.jpg" alt="" decoding="async"></figure>
+        <figure class="sc-layer" data-fx=".33" data-fy=".5" data-target="Renal cortex"><img src="img/scale/1-organ.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="sc-layer" data-fx=".6" data-fy=".48" data-target="Tubule epithelium"><img src="img/scale/2-tissue.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="sc-layer" data-fx=".2" data-fy=".42" data-target="Endosomes"><img src="img/scale/3-cells.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="sc-layer" data-fx=".68" data-fy=".62" data-target="Target receptor"><img src="img/scale/4-organelles.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <figure class="sc-layer" data-fx=".5" data-fy=".45" data-target="Molecular layers"><img src="img/scale/5-molecule.jpg" alt="" loading="lazy" decoding="async"></figure>
+        <div class="sc-layer sc-omics">
+          <div class="sc-stack">
+            <div class="sc-plate" style="--i:0"><img src="img/scale/omics-genetics.jpg" alt="" loading="lazy"></div>
+            <div class="sc-plate" style="--i:1"><img src="img/scale/omics-umap.jpg" alt="" loading="lazy"></div>
+            <div class="sc-plate" style="--i:2"><img src="img/scale/omics-clusters.jpg" alt="" loading="lazy"></div>
+            <div class="sc-plate" style="--i:3"><img src="img/scale/omics-expression.jpg" alt="" loading="lazy"></div>
+            <div class="sc-plate" style="--i:4"><img src="img/scale/omics-proteomics.jpg" alt="" loading="lazy"></div>
+          </div>
+          <ol class="sc-legend">
+            <li>Spatial proteomics</li><li>Gene expression in place</li><li>Spatial transcriptomics</li><li>Single-cell states</li><li>Human genetics</li>
+          </ol>
+        </div>
+      </div>
+      <div class="sc-vignette" aria-hidden="true"></div>
+      <div class="sc-reticle" aria-hidden="true"><i></i><span></span></div>
+      <div class="sc-hud">
+        <p class="sc-alt" aria-hidden="true">Eye altitude <b class="sc-alt-v">2.2 m</b></p>
+        <ol class="sc-ladder" aria-label="Scale">
+          <li class="is-active"><button type="button">Whole subject</button><small>1 m</small></li>
+          <li><button type="button">Organ</button><small>10 cm</small></li>
+          <li><button type="button">Tissue</button><small>1 mm</small></li>
+          <li><button type="button">Cells</button><small>100 µm</small></li>
+          <li><button type="button">Intracellular</button><small>10 µm</small></li>
+          <li><button type="button">Molecular</button><small>10 nm</small></li>
+          <li><button type="button">Multi-omics</button><small>all layers</small></li>
+        </ol>
+      </div>
+      <p class="sr-only sc-announce" aria-live="polite"></p>
+      <div class="sc-cards">
+        <article class="sc-card is-active"><p class="k">Whole subject · metres</p><h3>Where does the medicine go?</h3><p>PET follows a radiolabelled medicine through the whole living subject, again and again, without surgery; MRI and CT supply the anatomy it is mapped onto. The signal shows where the label is; other assays confirm the medicine is intact.</p><p class="pillar">Exposure at the site of action</p></article>
+        <article class="sc-card"><p class="k">Organ · centimetres</p><h3>How much reaches the organ that matters?</h3><p>AI outlines more than 150 structures, so uptake, perfusion and radiomics are measured organ by organ. Here, the kidney: often dose-limiting for radiolabelled medicines.</p><p class="pillar">Exposure at the site of action</p></article>
+        <article class="sc-card"><p class="k">Tissue · millimetres</p><h3>Where in the tissue did it land?</h3><p>Whole-slide, multiplex and AI-powered histopathology resolve glomeruli and tubules, placing the drug against the tissue’s own architecture.</p><p class="pillar">Target localisation</p></article>
+        <article class="sc-card"><p class="k">Cells · 100 micrometres</p><h3>Which cells, in which state?</h3><p>Live-cell and 3D imaging of complex in vitro models: cellular dynamics, cell state and cell health, cell–cell communication and the microenvironment.</p><p class="pillar">Target engagement</p></article>
+        <article class="sc-card"><p class="k">Intracellular · 10 micrometres</p><h3>Inside the cell</h3><p>Super-resolution microscopy follows uptake, endosomal escape and payload release, organelle by organelle.</p><p class="pillar">Target engagement</p></article>
+        <article class="sc-card"><p class="k">Molecular · nanometres</p><h3>The molecule and its target</h3><p>Imaging mass spectrometry and single-molecule imaging map the drug, its metabolites and its target in place. Illustration generated for this site.</p><p class="pillar">Functional pharmacology</p></article>
+        <article class="sc-card"><p class="k">Multi-omics · every layer</p><h3>Integrated multi-omics</h3><p>Human genetics, single-cell states, spatial transcriptomics and spatial proteomics aligned to the image: genetics to cell type to druggable target.</p><p class="pillar">Right target, right patient</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHAT WE FOLLOW ============================ -->
+<section id="follow" class="band band-ink" data-theme="dark" aria-labelledby="follow-title">
+  <div class="wrap grid-12">
+    <div class="col-6">
+      <p class="eyebrow">Tag it, then follow it</p>
+      <h2 id="follow-title" class="display">From small molecules to <em>engineered biologics.</em></h2>
+      <p class="prose-dark">A radioactive label on a medicine lets us measure, repeatedly and without surgery, where the molecule goes: its biodistribution, whether it reaches its target, how it clears and how long it stays. The label shows where the signal is; complementary assays confirm the medicine is intact and active.</p>
+    </div>
+    <div class="col-5 col-start-8">
+      <ul class="chips" aria-label="What we can label and follow">
+        <li>Small molecules</li><li>Peptides</li><li>Antibodies</li><li>Antibody–drug conjugates</li>
+        <li>T-cell engagers</li><li>Oligonucleotides</li><li>Nanoparticles</li><li>Brain-shuttle constructs</li>
+      </ul>
+      <dl class="questions">
+        <div><dt>Does it get there?</dt><dd>Target engagement and exposure at the site that matters.</dd></div>
+        <div><dt>How much, how fast, how long?</dt><dd>Uptake, kinetics and residence time from repeated scans.</dd></div>
+        <div><dt>Does it reach the brain?</dt><dd>Brain uptake measured region by region; confirming delivery beyond the blood vessels takes complementary measures such as blood-signal correction and microscopy.</dd></div>
+        <div><dt>Where else does it go?</dt><dd>Off-target uptake and clearance routes across every organ.</dd></div>
+      </dl>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ REACH ============================ -->
+<section id="reach" class="band" data-theme="light" aria-labelledby="reach-title">
+  <div class="wrap grid-12">
+    <div class="col-5">
+      <p class="eyebrow">Therapeutic reach</p>
+      <h2 id="reach-title" class="display">From the brain <em>to every organ.</em></h2>
+    </div>
+    <div class="col-6 col-start-7 prose">
+      <p>A whole-body field of view keeps the major organs in scope in each scan, within the limits of coverage and resolution. That is how a program aimed at one tissue learns early what happens in the others.</p>
+      <p>Our aim is <strong>best-in-class and first-in-class medicines</strong>, including precision medicine, nanomedicine and brain delivery, designed with imaging evidence from the start.</p>
+    </div>
+  </div>
+  <div class="wrap organs-grid" role="list">
+    <article role="listitem" style="--c:#3987e5"><h3>Brain &amp; CNS</h3><p>Brain-shuttle delivery across the blood–brain barrier; deep structures such as the thalamus, caudate and hippocampus.</p></article>
+    <article role="listitem" style="--c:#d55181"><h3>Lungs &amp; airways</h3><p>Inhaled and systemic delivery, inflammation and fibrosis, from the trachea to the lung periphery.</p></article>
+    <article role="listitem" style="--c:#e66767"><h3>Heart &amp; blood</h3><p>Myocardium and the left-ventricle blood pool, the reference for circulating exposure.</p></article>
+    <article role="listitem" style="--c:#d95926"><h3>Liver</h3><p>Hepatic uptake and clearance, a first stop for many biologics and nanoparticles.</p></article>
+    <article role="listitem" style="--c:#9085e9"><h3>Spleen &amp; immune</h3><p>Immune-cell homing, antibody and T-cell-engager distribution in lymphoid tissue.</p></article>
+    <article role="listitem" style="--c:#c98500"><h3>Kidneys &amp; bladder</h3><p>Renal clearance and exposure, often the dose-limiting organs for radiolabelled medicines.</p></article>
+    <article role="listitem" style="--c:#53d5c8"><h3>Tumours, anywhere</h3><p>Targeting, penetration and payload delivery for oncology, wherever the disease sits.</p></article>
+  </div>
+</section>
+
+<!-- ============================ METHODS ============================ -->
+<section id="methods" class="band band-soft" data-theme="light" aria-labelledby="methods-title">
+  <div class="wrap grid-12">
+    <div class="col-5">
+      <p class="eyebrow">Methods, briefly</p>
+      <h2 id="methods-title" class="display">How a scan becomes <em>a decision.</em></h2>
+    </div>
+    <div class="col-6 col-start-7 prose">
+      <p>The same five steps run on every study, so results are comparable across programs and years. Each step is automated where it can be and reviewed by a scientist where it must be.</p>
+    </div>
+  </div>
+  <ol class="wrap steps">
+    <li><span class="n">1</span><h3>Acquire</h3><p>Multimodal imaging over time: PET/MR, PET/CT, MRI, CT and optical, with standardised protocols and metadata.</p></li>
+    <li><span class="n">2</span><h3>Segment</h3><p>Deep-learning models delineate the whole body, organs and brain regions, with automated quality checks on every mask.</p></li>
+    <li><span class="n">3</span><h3>Quantify</h3><p>Biodistribution and uptake per organ, whole-body tracer balance and time–activity curves.</p></li>
+    <li><span class="n">4</span><h3>Extract</h3><p>Whole-body radiomics: a thousand-plus shape, intensity and texture features per region, reduced to a non-redundant set.</p></li>
+    <li><span class="n">5</span><h3>Interpret</h3><p>Features are related to dose, response and clinically relevant endpoints, and reviewed by scientists before anyone acts on them.</p></li>
+  </ol>
+</section>
+
+<!-- ============================ 3D FACILITY ============================ -->
+<section id="lab" class="band band-ivory lab" data-theme="light" aria-labelledby="lab-title">
+  <div class="wrap grid-12">
+    <div class="col-6">
+      <p class="eyebrow">Inside the lab</p>
+      <h2 id="lab-title" class="display">Instruments, compute and knowledge <em>in one loop.</em></h2>
+    </div>
+    <div class="col-5 col-start-8 prose">
+      <p>Explore the facility as a model. Radiochemistry and a fleet of scanners feed a data platform; GPU compute analyses each study as it lands; a knowledge base keeps everything connected; in the Science hub, a touch-and-voice mission control lets scientists ask, simulate in silico and decide what happens next, and the loop closes back at radiochemistry.</p>
+    </div>
+  </div>
+  <div class="facility" id="facility3d" data-src="">
+    <div class="fac-stage">
+      <canvas class="fac-canvas" aria-hidden="true"></canvas>
+      <div class="fac-labels" aria-hidden="true"></div>
+      <div class="fac-tip" role="status" hidden></div>
+      <div class="fac-loading" aria-hidden="true"><span></span>Loading the facility model</div>
+      <div class="fac-fallback"><img src="img/facility-poster.jpg" alt="Cutaway model of the facility: radiochemistry, imaging hall, pathology and spatial biology, data centre, knowledge core, science hub and automated lab" loading="lazy"><p>The interactive model needs WebGL. The steps of the loop are listed alongside.</p></div>
+      <div class="fac-hint"><span class="h-mouse">Drag to rotate · scroll to zoom · select a room</span><span class="h-touch">Swipe sideways to rotate · pinch to zoom · tap a room</span></div>
+      <div class="fac-tools" role="group" aria-label="View">
+        <button type="button" class="icon-btn fac-reset" title="Reset view"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8a5 5 0 1 0 1.5-3.6" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M2.5 1.8v4h4z"/></svg><span>Reset</span></button>
+        <button type="button" class="icon-btn fac-flow" aria-pressed="true" title="Pause or resume motion"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="3" cy="8" r="2"/><circle cx="13" cy="4" r="2"/><circle cx="13" cy="12" r="2"/><path d="M5 8l6-3.5M5 8l6 3.5" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span>Motion</span></button>
+      </div>
+    </div>
+    <aside class="fac-panel" aria-live="polite">
+      <div class="fac-tour">
+        <p class="eyebrow">The loop, step by step</p>
+        <ol class="fac-steps"></ol>
+        <div class="fac-nav">
+          <button type="button" class="btn btn-primary fac-next">Start the tour</button>
+        </div>
+      </div>
+      <div class="fac-detail" hidden>
+        <p class="eyebrow fac-detail-kicker"></p>
+        <h3 class="fac-detail-title" tabindex="-1"></h3>
+        <div class="fac-detail-body"></div>
+        <div class="fac-nav"><button type="button" class="btn fac-dprev">Back</button><button type="button" class="btn btn-primary fac-dnext">Next</button></div>
+        <button type="button" class="btn fac-close">All steps</button>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ============================ KNOWLEDGE ============================ -->
+<section id="knowledge" class="band band-ink" data-theme="dark" aria-labelledby="knowledge-title">
+  <div class="wrap grid-12">
+    <div class="col-6">
+      <p class="eyebrow">Knowledge loop</p>
+      <h2 id="knowledge-title" class="display">From cold files to <em>collective knowledge.</em></h2>
+      <p class="prose-dark">A decade of imaging work lives in folders, slide decks, reports, spreadsheets, images and meeting notes. Everyday AI assistants usually know only what we give them in the chat, one file at a time. We built a knowledge base that reads all of it, organises it by topic rather than by folder, and keeps a link to every original.</p>
+      <p class="prose-dark">It works like a librarian, not a search box. When new material arrives, the system checks for related work, duplication and conflicts, then connects it to what is already known. Every source makes the next one cheaper.</p>
+    </div>
+    <div class="col-5 col-start-8">
+      <dl class="stats">
+        <div><dt>142,000+</dt><dd>source files read (about 43 GB), 2016–2026</dd></div>
+        <div><dt>29</dt><dd>team and departmental areas, plus 12+ programme archives</dd></div>
+        <div><dt>1,985</dt><dd>interconnected pages across two knowledge bases</dd></div>
+        <div><dt>908 · 496 · 438</dt><dd>source summaries · entities · concepts (September 2026)</dd></div>
+      </dl>
+    </div>
+  </div>
+
+  <div class="wrap ask">
+    <figure class="ask-card">
+      <figcaption>Instead of “summarise this document”, a scientist can ask:</figcaption>
+      <blockquote>“Based on this program information and what we have learned from related work, what should we do next?”</blockquote>
+      <p>On the Science hub’s touch wall, by voice or touch, the answer brings the new material together with relevant history: a cited précis with links to the originals, a proposed experimental approach (increasingly, checked in silico first), and the assumptions that still need scientific review. It can come back as text, audio narration or a diagram.</p>
+    </figure>
+    <ol class="loop" aria-label="The lab-in-the-loop cycle">
+      <li><b>Ask</b><span>A question in plain language, plus any new report, image, slide or sketch.</span></li>
+      <li><b>Combine</b><span>New material joined with the relevant history from the knowledge base.</span></li>
+      <li><b>Propose</b><span>An evidence-based next step, with citations and open assumptions.</span></li>
+      <li><b>Simulate</b><span>Our direction: run the proposed experiment in silico first, with predicted biodistribution and its uncertainty.</span></li>
+      <li class="gate"><b>Review &amp; approve</b><span>Scientists challenge the evidence and decide. Nothing runs without them.</span></li>
+      <li><b>Run</b><span>The approved design loops back to radiochemistry and the lab; our direction is closed-loop, automated execution.</span></li>
+      <li><b>Capture &amp; analyse</b><span>Data land on the imaging platform; analysis agents compute endpoints and update dashboards, images included.</span></li>
+      <li><b>Learn</b><span>Results flow back into the knowledge base, so the next question starts with more context.</span></li>
+    </ol>
+  </div>
+
+  <div class="wrap principle">
+    <p><strong>AI supports scientific judgment. It does not replace it.</strong> Scientists stay responsible for reviewing the evidence, challenging assumptions, approving experiments and interpreting results.</p>
+  </div>
+
+  <div class="wrap ecosystem">
+    <p class="eyebrow">Built on open and commercial tools, including</p>
+    <ul>
+      <li>Bruker PET/MRI</li><li>Mediso PET/CT</li><li>MONAI</li><li>NVIDIA BioNeMo, NIM &amp; blueprints</li><li>scverse</li><li>Flywheel</li><li>ZEISS arivis</li>
+      <li>Indica Labs HALO</li><li>Visiopharm</li><li>BioTuring</li><li>10x Genomics</li>
+    </ul>
+    <p class="fine">Names are trademarks of their owners. Listing does not imply endorsement.</p>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section id="contact" class="band" data-theme="light" aria-labelledby="contact-title">
+  <div class="wrap grid-12">
+    <div class="col-6">
+      <p class="eyebrow">Collaborate</p>
+      <h2 id="contact-title" class="display">Bring us a question <em>worth imaging.</em></h2>
+    </div>
+    <div class="col-5 col-start-8 prose">
+      <p>We work with discovery and development teams, academic partners and technology companies on in vivo imaging, radiochemistry and imaging AI.</p>
+      <p><a class="btn btn-primary" href="mailto:deepometry@gmail.com">contact@airesearchcenter.com</a></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="credits" class="footer" data-theme="dark">
+  <div class="wrap grid-12">
+    <div class="col-5">
+      <p class="brand brand-foot"><svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="14.5" fill="none" stroke="currentColor" stroke-width="1.4"/><circle cx="16" cy="16" r="7.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2.2 2.2"/><circle cx="16" cy="16" r="2.4" fill="currentColor"/></svg><span>AI Research Center</span></p>
+      <p class="fine">airesearchcenter.com</p>
+      <p class="fine">© 2026 Minh Doan. All rights reserved. Text, images, 3D models, data and code on this site may not be copied or reused without written permission. To ask, email <a href="mailto:deepometry@gmail.com">deepometry@gmail.com</a>.</p>
+    </div>
+    <div class="col-7 fine credits">
+      <h2>About the illustrations</h2>
+      <p>The anatomy is an illustrative composite, not one subject. Organ surfaces come from preclinical CT segmentation masks, smoothed and morphed onto human reference anatomy. Feature values in the charts come from a preclinical imaging study, shown without study identifiers. Radiolabel signal shows where a label is, not by itself that a medicine is intact or active.</p>
+      <p>Human reference anatomy: BodyParts3D 4.0, © The Database Center for Life Science, CC BY 4.0. Lung and liver reference shapes: HuBMAP Human Reference Atlas, CCF 3D Reference Object Library (Visible Human Male), CC BY 4.0. Browser packing adapted from human-atlas (MIT). 3D rendering: three.js (MIT). Typefaces: Source Serif 4 and Source Sans 3 (SIL OFL).</p>
+      <p>Zoom journey imagery: organ and molecule illustrations generated for this site with an image model; tissue, cell and lymphoid micrographs re-rendered at high resolution from example images; the organelle and spatial-transcriptomics panels are example images; the genetics plot is illustrative. Radiomics values come from a preclinical imaging study, shown without study identifiers.</p>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
