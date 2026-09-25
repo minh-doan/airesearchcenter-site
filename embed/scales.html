@@ -34,9 +34,11 @@
             <li>Spatial proteomics</li><li>Gene expression in place</li><li>Spatial transcriptomics</li><li>Single-cell states</li><li>Human genetics</li>
           </ol>
         </div>
+        <div class="sc-vignette"></div>
+        <div class="sc-reticle"><i></i><span></span></div>
       </div>
-      <div class="sc-vignette" aria-hidden="true"></div>
-      <div class="sc-reticle" aria-hidden="true"><i></i><span></span></div>
+      <p class="sr-only sc-announce" aria-live="polite"></p>
+      <div class="sc-rail">
       <div class="sc-hud">
         <p class="sc-alt" aria-hidden="true">Eye altitude <b class="sc-alt-v">2.2 m</b></p>
         <ol class="sc-ladder" aria-label="Scale">
@@ -49,12 +51,6 @@
           <li><button type="button">Multi-omics</button><small>all layers</small></li>
         </ol>
       </div>
-      <div class="sc-controls" role="group" aria-label="Zoom controls">
-        <button type="button" class="sc-play icon-btn" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-play" d="M4 2.5v11l9-5.5z"/><path class="i-pause" d="M4 2.5h3v11H4zm5 0h3v11H9z"/></svg><span>Pause</span></button>
-        <label class="sr-only" for="sc-scrub">Zoom from whole subject to molecule</label>
-        <input id="sc-scrub" class="sc-scrub" type="range" min="0" max="1000" step="1" value="0">
-      </div>
-      <p class="sr-only sc-announce" aria-live="polite"></p>
       <div class="sc-cards">
         <article class="sc-card is-active"><p class="k">Whole subject · metres</p><h3>Where does the medicine go?</h3><p>PET follows a radiolabelled medicine through the whole living subject, again and again, without surgery; MRI and CT supply the anatomy it is mapped onto. The signal shows where the label is; other assays confirm the medicine is intact.</p><p class="pillar">Exposure at the site of action</p></article>
         <article class="sc-card"><p class="k">Organ · centimetres</p><h3>How much reaches the organ that matters?</h3><p>AI outlines more than 150 structures, so uptake, perfusion and radiomics are measured organ by organ. Here, the kidney: often dose-limiting for radiolabelled medicines.</p><p class="pillar">Exposure at the site of action</p></article>
@@ -63,6 +59,12 @@
         <article class="sc-card"><p class="k">Intracellular · 10 micrometres</p><h3>Inside the cell</h3><p>Super-resolution microscopy follows uptake, endosomal escape and payload release, organelle by organelle.</p><p class="pillar">Target engagement</p></article>
         <article class="sc-card"><p class="k">Molecular · nanometres</p><h3>The molecule and its target</h3><p>Imaging mass spectrometry and single-molecule imaging map the drug, its metabolites and its target in place. Illustration generated for this site.</p><p class="pillar">Functional pharmacology</p></article>
         <article class="sc-card"><p class="k">Multi-omics · every layer</p><h3>Integrated multi-omics</h3><p>Human genetics, single-cell states, spatial transcriptomics and spatial proteomics aligned to the image: genetics to cell type to druggable target.</p><p class="pillar">Right target, right patient</p></article>
+      </div>
+      <div class="sc-controls" role="group" aria-label="Zoom controls">
+        <button type="button" class="sc-play icon-btn" aria-pressed="true"><svg viewBox="0 0 16 16" aria-hidden="true"><path class="i-play" d="M4 2.5v11l9-5.5z"/><path class="i-pause" d="M4 2.5h3v11H4zm5 0h3v11H9z"/></svg><span>Pause</span></button>
+        <label class="sr-only" for="sc-scrub">Zoom from whole subject to molecule</label>
+        <input id="sc-scrub" class="sc-scrub" type="range" min="0" max="1000" step="1" value="0">
+      </div>
       </div>
     </div>
   </div>

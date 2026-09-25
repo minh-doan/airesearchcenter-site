@@ -392,7 +392,7 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
 .scales-intro { margin-bottom: 36px; }
 .sc-hint { color: var(--teal); font-weight: 600; }
 .scales-track { position: relative; height: calc((var(--levels) - 1 + .7) * 100svh + 100svh); }
-.scales-view { position: sticky; top: 60px; height: calc(100svh - 60px); overflow: hidden; background: #05141a; }
+.scales-view { position: sticky; top: 60px; height: calc(var(--fit-h, 100svh) - 60px); overflow: hidden; background: #05141a; }
 .scales-layers { position: absolute; inset: 0; }
 .sc-layer { position: absolute; inset: 0; margin: 0; visibility: hidden; will-change: transform, filter, opacity; }
 .sc-layer img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -464,7 +464,7 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
 /* zoom as a self-playing widget (embed/scales.html): fits its frame, never scrolls */
 .scales.is-player { padding-top: 0; }
 .scales.is-player .scales-track { height: 100svh; }
-.scales.is-player .scales-view { position: relative; top: 0; height: 100svh; }
+.scales.is-player .scales-view { position: relative; top: 0; height: var(--fit-h, 100svh); }
 .sc-controls { position: absolute; z-index: 6; left: max(18px, calc((100% - var(--max)) / 2)); bottom: 28px; width: min(440px, calc(58% - 40px)); display: flex; align-items: center; gap: 12px; }
 .sc-controls .sc-scrub { flex: 1; min-width: 0; }
 @media (max-width: 900px) {
@@ -472,3 +472,30 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
   .scales.is-player .sc-cards { bottom: 58px; }
 }
 @media (max-width: 520px) { .sc-legend { display: none; } }   /* overlaps the plate stack on phones; the card names the layers */
+
+/* zoom, wide screens: the altitude box and the level card sit together in one rail beside the
+   imagery, so both and the zoom are in view at once however large the window or embed.
+   Phones keep the overlay layout (the rail dissolves with display: contents). */
+@media (min-width: 901px) {
+  .scales-view { --rail: clamp(300px, 30%, 420px); }
+  .scales-layers { left: var(--rail); }
+  .sc-vignette { background: radial-gradient(120% 95% at 50% 50%, transparent 58%, rgba(5, 20, 26, .72) 100%), linear-gradient(90deg, rgba(5, 20, 26, .9) 0, transparent 7%); }
+  .sc-rail { position: absolute; z-index: 5; left: 0; top: 0; bottom: 0; width: var(--rail); box-sizing: border-box; padding: 22px 14px 22px 22px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
+  .sc-rail .sc-hud { position: relative; left: auto; top: auto; }
+  .sc-rail .sc-cards { position: relative; right: auto; bottom: auto; width: auto; display: grid; }
+  .sc-rail .sc-card { position: relative; right: auto; bottom: auto; width: auto; grid-area: 1 / 1; }
+  .sc-rail .sc-controls { position: relative; left: auto; bottom: auto; width: auto; }
+}
+@media (max-width: 900px) { .sc-rail { display: contents; } }
+
+/* "imagining": the two inserted letters are the point (imaging -> imagining). They carry the
+   accent gradient and a proofreader's insertion caret below the line, and grow in the first time the heading
+   comes into view (main.entry.js adds .armed then .is-in; without scripts they simply show). */
+.imagine { white-space: nowrap; }
+.imagine .add { position: relative; display: inline-block; }
+.imagine ins { text-decoration: none; display: inline-block; padding-right: .03em; font-weight: 600; background: linear-gradient(100deg, #16877e 0%, #b36b12 50%, #6b57c9 100%) 0 0 / 220% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: imagine-shimmer 5s ease-in-out infinite alternate; }
+.imagine .add::before { content: "\2038"; position: absolute; left: 50%; bottom: -.36em; transform: translateX(-50%); font-style: normal; font-weight: 600; font-size: .62em; line-height: 1; color: #b36b12; animation: imagine-bob 2.6s ease-in-out infinite; }
+.imagine.armed ins { font-size: 0; opacity: 0; transition: font-size 1.1s var(--ease) .3s, opacity .9s ease .3s; }
+.imagine.armed.is-in ins { font-size: 1em; opacity: 1; }
+@keyframes imagine-shimmer { to { background-position: 100% 0; } }
+@keyframes imagine-bob { 50% { transform: translate(-50%, .1em); } }

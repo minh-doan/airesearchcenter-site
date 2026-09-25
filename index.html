@@ -31,9 +31,8 @@
       <a href="#facility">The facility</a>
       <a href="#scales">Body to molecule</a>
       <a href="#follow">What we follow</a>
-      <a href="#methods">Methods</a>
       <a href="#lab">Inside the lab</a>
-      <a href="#knowledge">Knowledge loop</a>
+      <a href="#knowledge">Collective intelligence</a>
       <a class="nav-cta" href="#contact">Collaborate</a>
     </nav>
   </div>
@@ -204,9 +203,11 @@
             <li>Spatial proteomics</li><li>Gene expression in place</li><li>Spatial transcriptomics</li><li>Single-cell states</li><li>Human genetics</li>
           </ol>
         </div>
+        <div class="sc-vignette"></div>
+        <div class="sc-reticle"><i></i><span></span></div>
       </div>
-      <div class="sc-vignette" aria-hidden="true"></div>
-      <div class="sc-reticle" aria-hidden="true"><i></i><span></span></div>
+      <p class="sr-only sc-announce" aria-live="polite"></p>
+      <div class="sc-rail">
       <div class="sc-hud">
         <p class="sc-alt" aria-hidden="true">Eye altitude <b class="sc-alt-v">2.2 m</b></p>
         <ol class="sc-ladder" aria-label="Scale">
@@ -219,7 +220,6 @@
           <li><button type="button">Multi-omics</button><small>all layers</small></li>
         </ol>
       </div>
-      <p class="sr-only sc-announce" aria-live="polite"></p>
       <div class="sc-cards">
         <article class="sc-card is-active"><p class="k">Whole subject · metres</p><h3>Where does the medicine go?</h3><p>PET follows a radiolabelled medicine through the whole living subject, again and again, without surgery; MRI and CT supply the anatomy it is mapped onto. The signal shows where the label is; other assays confirm the medicine is intact.</p><p class="pillar">Exposure at the site of action</p></article>
         <article class="sc-card"><p class="k">Organ · centimetres</p><h3>How much reaches the organ that matters?</h3><p>AI outlines more than 150 structures, so uptake, perfusion and radiomics are measured organ by organ. Here, the kidney: often dose-limiting for radiolabelled medicines.</p><p class="pillar">Exposure at the site of action</p></article>
@@ -228,6 +228,8 @@
         <article class="sc-card"><p class="k">Intracellular · 10 micrometres</p><h3>Inside the cell</h3><p>Super-resolution microscopy follows uptake, endosomal escape and payload release, organelle by organelle.</p><p class="pillar">Target engagement</p></article>
         <article class="sc-card"><p class="k">Molecular · nanometres</p><h3>The molecule and its target</h3><p>Imaging mass spectrometry and single-molecule imaging map the drug, its metabolites and its target in place. Illustration generated for this site.</p><p class="pillar">Functional pharmacology</p></article>
         <article class="sc-card"><p class="k">Multi-omics · every layer</p><h3>Integrated multi-omics</h3><p>Human genetics, single-cell states, spatial transcriptomics and spatial proteomics aligned to the image: genetics to cell type to druggable target.</p><p class="pillar">Right target, right patient</p></article>
+      </div>
+      <!-- sc-controls -->
       </div>
     </div>
   </div>
@@ -254,49 +256,6 @@
       </dl>
     </div>
   </div>
-</section>
-
-<!-- ============================ REACH ============================ -->
-<section id="reach" class="band" data-theme="light" aria-labelledby="reach-title">
-  <div class="wrap grid-12">
-    <div class="col-5">
-      <p class="eyebrow">Therapeutic reach</p>
-      <h2 id="reach-title" class="display">From the brain <em>to every organ.</em></h2>
-    </div>
-    <div class="col-6 col-start-7 prose">
-      <p>A whole-body field of view keeps the major organs in scope in each scan, within the limits of coverage and resolution. That is how a program aimed at one tissue learns early what happens in the others.</p>
-      <p>Our aim is <strong>best-in-class and first-in-class medicines</strong>, including precision medicine, nanomedicine and brain delivery, designed with imaging evidence from the start.</p>
-    </div>
-  </div>
-  <div class="wrap organs-grid" role="list">
-    <article role="listitem" style="--c:#3987e5"><h3>Brain &amp; CNS</h3><p>Brain-shuttle delivery across the blood–brain barrier; deep structures such as the thalamus, caudate and hippocampus.</p></article>
-    <article role="listitem" style="--c:#d55181"><h3>Lungs &amp; airways</h3><p>Inhaled and systemic delivery, inflammation and fibrosis, from the trachea to the lung periphery.</p></article>
-    <article role="listitem" style="--c:#e66767"><h3>Heart &amp; blood</h3><p>Myocardium and the left-ventricle blood pool, the reference for circulating exposure.</p></article>
-    <article role="listitem" style="--c:#d95926"><h3>Liver</h3><p>Hepatic uptake and clearance, a first stop for many biologics and nanoparticles.</p></article>
-    <article role="listitem" style="--c:#9085e9"><h3>Spleen &amp; immune</h3><p>Immune-cell homing, antibody and T-cell-engager distribution in lymphoid tissue.</p></article>
-    <article role="listitem" style="--c:#c98500"><h3>Kidneys &amp; bladder</h3><p>Renal clearance and exposure, often the dose-limiting organs for radiolabelled medicines.</p></article>
-    <article role="listitem" style="--c:#53d5c8"><h3>Tumours, anywhere</h3><p>Targeting, penetration and payload delivery for oncology, wherever the disease sits.</p></article>
-  </div>
-</section>
-
-<!-- ============================ METHODS ============================ -->
-<section id="methods" class="band band-soft" data-theme="light" aria-labelledby="methods-title">
-  <div class="wrap grid-12">
-    <div class="col-5">
-      <p class="eyebrow">Methods, briefly</p>
-      <h2 id="methods-title" class="display">How a scan becomes <em>a decision.</em></h2>
-    </div>
-    <div class="col-6 col-start-7 prose">
-      <p>The same five steps run on every study, so results are comparable across programs and years. Each step is automated where it can be and reviewed by a scientist where it must be.</p>
-    </div>
-  </div>
-  <ol class="wrap steps">
-    <li><span class="n">1</span><h3>Acquire</h3><p>Multimodal imaging over time: PET/MR, PET/CT, MRI, CT and optical, with standardised protocols and metadata.</p></li>
-    <li><span class="n">2</span><h3>Segment</h3><p>Deep-learning models delineate the whole body, organs and brain regions, with automated quality checks on every mask.</p></li>
-    <li><span class="n">3</span><h3>Quantify</h3><p>Biodistribution and uptake per organ, whole-body tracer balance and time–activity curves.</p></li>
-    <li><span class="n">4</span><h3>Extract</h3><p>Whole-body radiomics: a thousand-plus shape, intensity and texture features per region, reduced to a non-redundant set.</p></li>
-    <li><span class="n">5</span><h3>Interpret</h3><p>Features are related to dose, response and clinically relevant endpoints, and reviewed by scientists before anyone acts on them.</p></li>
-  </ol>
 </section>
 
 <!-- ============================ 3D FACILITY ============================ -->
@@ -346,18 +305,11 @@
 <section id="knowledge" class="band band-ink" data-theme="dark" aria-labelledby="knowledge-title">
   <div class="wrap grid-12">
     <div class="col-6">
-      <p class="eyebrow">Knowledge loop</p>
-      <h2 id="knowledge-title" class="display">From cold files to <em>collective knowledge.</em></h2>
-      <p class="prose-dark">A decade of imaging work lives in folders, slide decks, reports, spreadsheets, images and meeting notes. Everyday AI assistants usually know only what we give them in the chat, one file at a time. We built a knowledge base that reads all of it, organises it by topic rather than by folder, and keeps a link to every original.</p>
-      <p class="prose-dark">It works like a librarian, not a search box. When new material arrives, the system checks for related work, duplication and conflicts, then connects it to what is already known. Every source makes the next one cheaper.</p>
+      <p class="eyebrow">Collective intelligence</p>
+      <h2 id="knowledge-title" class="display">Knowledge that compounds, <em>like interest.</em></h2>
     </div>
     <div class="col-5 col-start-8">
-      <dl class="stats">
-        <div><dt>142,000+</dt><dd>source files read (about 43 GB), 2016–2026</dd></div>
-        <div><dt>29</dt><dd>team and departmental areas, plus 12+ programme archives</dd></div>
-        <div><dt>1,985</dt><dd>interconnected pages across two knowledge bases</dd></div>
-        <div><dt>908 · 496 · 438</dt><dd>source summaries · entities · concepts (September 2026)</dd></div>
-      </dl>
+      <p class="prose-dark">When new material arrives, the system checks for related work, duplication and conflicts, then connects it to what is already known. Every source makes the next one cheaper.</p>
     </div>
   </div>
 
@@ -379,10 +331,6 @@
     </ol>
   </div>
 
-  <div class="wrap principle">
-    <p><strong>AI supports scientific judgment. It does not replace it.</strong> Scientists stay responsible for reviewing the evidence, challenging assumptions, approving experiments and interpreting results.</p>
-  </div>
-
   <div class="wrap ecosystem">
     <p class="eyebrow">Built on open and commercial tools, including</p>
     <ul>
@@ -398,7 +346,7 @@
   <div class="wrap grid-12">
     <div class="col-6">
       <p class="eyebrow">Collaborate</p>
-      <h2 id="contact-title" class="display">Bring us a question <em>worth imaging.</em></h2>
+      <h2 id="contact-title" class="display">Bring us a question <em>worth <span class="imagine" title="Not a typo: from imaging to imagining">imag<span class="add"><ins>in</ins></span>ing</span>.</em></h2>
     </div>
     <div class="col-5 col-start-8 prose">
       <p>We work with discovery and development teams, academic partners and technology companies on in vivo imaging, radiochemistry and imaging AI.</p>
@@ -418,9 +366,9 @@
     </div>
     <div class="col-7 fine credits">
       <h2>About the illustrations</h2>
-      <p>The anatomy is an illustrative composite, not one subject. Organ surfaces come from preclinical CT segmentation masks, smoothed and morphed onto human reference anatomy. Feature values in the charts come from a preclinical imaging study, shown without study identifiers. Radiolabel signal shows where a label is, not by itself that a medicine is intact or active.</p>
+      <p>The anatomy is an illustrative composite, not one subject. Organ surfaces come from preclinical CT segmentation masks, smoothed and morphed onto human reference anatomy. Feature values in the charts are demonstration data with the shape of a whole-body radiomics table (the same features, organs and region counts). Radiolabel signal shows where a label is, not by itself that a medicine is intact or active.</p>
       <p>Human reference anatomy: BodyParts3D 4.0, © The Database Center for Life Science, CC BY 4.0. Lung and liver reference shapes: HuBMAP Human Reference Atlas, CCF 3D Reference Object Library (Visible Human Male), CC BY 4.0. Browser packing adapted from human-atlas (MIT). 3D rendering: three.js (MIT). Typefaces: Source Serif 4 and Source Sans 3 (SIL OFL).</p>
-      <p>Zoom journey imagery: organ and molecule illustrations generated for this site with an image model; tissue, cell and lymphoid micrographs re-rendered at high resolution from example images; the organelle and spatial-transcriptomics panels are example images; the genetics plot is illustrative. Radiomics values come from a preclinical imaging study, shown without study identifiers.</p>
+      <p>Zoom journey imagery: organ and molecule illustrations generated for this site with an image model; tissue, cell and lymphoid micrographs re-rendered at high resolution from example images; the organelle and spatial-transcriptomics panels are example images; the genetics plot is illustrative.</p>
     </div>
   </div>
 </footer>
