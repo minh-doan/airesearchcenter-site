@@ -500,7 +500,7 @@ body.embed .fac-stage, body.embed .fac-panel { height: 100svh; max-height: none;
   .sc-rail { position: absolute; z-index: 5; left: 0; top: 0; bottom: 0; width: var(--rail); box-sizing: border-box; padding: 22px 14px 22px 22px; display: flex; flex-direction: column; gap: 14px; overflow: hidden; }
   .sc-rail .sc-hud { position: relative; left: auto; top: auto; }
   .sc-rail .sc-hud, .sc-rail .sc-controls { flex: none; }
-  .sc-rail .sc-cards { position: relative; right: auto; bottom: auto; width: auto; display: grid; flex: 0 1 auto; min-height: 0; overflow: auto; }
+  .sc-rail .sc-cards { position: relative; right: auto; bottom: auto; width: auto; display: grid; flex: 0 1 auto; min-height: 0; overflow: hidden; }   /* no scrollbar: inactive cards sit 8px low (entrance transform) and would make one; very short views clip the card instead */
   .sc-rail .sc-card { position: relative; right: auto; bottom: auto; width: auto; grid-area: 1 / 1; }
   .sc-rail .sc-controls { position: relative; left: auto; bottom: auto; width: auto; }
 }
